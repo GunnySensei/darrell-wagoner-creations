@@ -1,9 +1,8 @@
 import { Nav, Navbar, NavDropdown } from "react-bootstrap";
-import React, { useState } from 'react';
+import React from 'react';
 
 
 function Header() {
-  const [showNavExternal2, setShowNavExternal2] = useState(false);
   return (
     <div className="container headerContainer">
       <div className="row">

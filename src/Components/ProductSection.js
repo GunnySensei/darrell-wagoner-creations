@@ -31,7 +31,7 @@ function ProductSection() {
     ];
 
     const productListGenerator = (imageList) => {
-        imageList.map(image => {
+        imageList.forEach(image => {
             let imageObject = {};
             imageObject.index = productListIndex;
             imageObject.image = image + ".jpg";
@@ -44,11 +44,11 @@ function ProductSection() {
 
     return (
         <div className="productSection row flex-grow-1">
-            {productList.map(product => {
+            {productList.forEach(product => {
                 return product.index % 2 !== 0 ?
                 <>
                 <li className="list-group-item image col-6 h-50" key={product.index}>
-                    <img src={product.image} className="img img-thumbnail full-width" key={product.index}/>
+                    <img src={product.image}  alt="wood made furniture" className="img img-thumbnail full-width" key={product.index}/>
                     <div></div>
                     <h2>{product.index}</h2>
                 </li>
@@ -57,7 +57,7 @@ function ProductSection() {
                 : 
                 <>  
                 <li className="list-group-item image col-6 h-25" key={product.index}>
-                    <img src={product.image} className="img img-thumbnail full-width" key={product.index}/>
+                    <img src={product.image} alt="furniture crafted in wood" className="img img-thumbnail full-width" key={product.index}/>
                     <div></div>
                     <h2>{product.index}</h2>
                 </li>
