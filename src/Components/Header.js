@@ -1,6 +1,5 @@
 import { Nav, Navbar, NavDropdown } from "react-bootstrap";
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 
 function Header() {
