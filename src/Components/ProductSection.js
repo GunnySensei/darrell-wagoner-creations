@@ -44,7 +44,7 @@ function ProductSection() {
 
     return (
         <div className="productSection row flex-grow-1">
-            {productList.forEach(product => {
+            {productList.map(product => {
                 return product.index % 2 !== 0 ?
                 <>
                 <li className="list-group-item image col-6 h-50" key={product.index}>
