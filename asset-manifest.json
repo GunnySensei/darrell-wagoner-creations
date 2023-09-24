@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/react-gh-pages/static/css/main.dca06aeb.css",
-    "main.js": "/react-gh-pages/static/js/main.407fd119.js",
-    "static/js/787.7cd44211.chunk.js": "/react-gh-pages/static/js/787.7cd44211.chunk.js",
-    "index.html": "/react-gh-pages/index.html",
-    "main.dca06aeb.css.map": "/react-gh-pages/static/css/main.dca06aeb.css.map",
-    "main.407fd119.js.map": "/react-gh-pages/static/js/main.407fd119.js.map",
-    "787.7cd44211.chunk.js.map": "/react-gh-pages/static/js/787.7cd44211.chunk.js.map"
+    "main.css": "/darrell-wagoner-creations/static/css/main.dca06aeb.css",
+    "main.js": "/darrell-wagoner-creations/static/js/main.2712f056.js",
+    "static/js/787.7cd44211.chunk.js": "/darrell-wagoner-creations/static/js/787.7cd44211.chunk.js",
+    "index.html": "/darrell-wagoner-creations/index.html",
+    "main.dca06aeb.css.map": "/darrell-wagoner-creations/static/css/main.dca06aeb.css.map",
+    "main.2712f056.js.map": "/darrell-wagoner-creations/static/js/main.2712f056.js.map",
+    "787.7cd44211.chunk.js.map": "/darrell-wagoner-creations/static/js/787.7cd44211.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.dca06aeb.css",
-    "static/js/main.407fd119.js"
+    "static/js/main.2712f056.js"
   ]
 }
