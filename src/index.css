@@ -35,6 +35,9 @@ code {
 
 /* Product CSS */
 
+img{
+}
+
 .image{
   position:relative;
   overflow:hidden;
@@ -59,4 +62,14 @@ code {
   position: absolute;
   color: white;
   background: linear-gradient(0deg, #00000088 30%, #ffffff44 100%);
+}
+
+/* Single Product CSS */
+
+.productSingle {
+  /* width: 30%; */
+}
+
+.productThumb {
+  /* height: 15% !important; */
 }

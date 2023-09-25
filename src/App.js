@@ -8,6 +8,7 @@ import {
 import Header from './Components/Header.js';
 import Home from './Pages/Home';
 import About from './Pages/About';
+import Product from './Pages/Product';
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
         <Header />
       <Routes>
           <Route path="/" element={<Home />} />
-            
+          <Route path="/product/:productName" element={<Product />}/>
           <Route path="/About" element={<About />}/>
           {/* <Route path="/Cart">
             <Cart />
