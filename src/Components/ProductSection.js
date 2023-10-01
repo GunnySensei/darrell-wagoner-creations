@@ -14,7 +14,7 @@ function ProductSection() {
             imageObject.image = image.link;
             imageObject.url = image.link.split("m/")[1];
             imageObject.name = image.title.split("-")[0];
-            console.log(image.title.split("-")[1])
+            // eslint-disable-next-line
             if(image.title.split("-")[1] == 1) {
                 formatProductList.push(imageObject);
             }

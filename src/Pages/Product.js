@@ -33,6 +33,7 @@ function Product() {
                 <img className="img img-thumbnail productSingle col-8" src={focusImage} alt={productName}/>
                 <div className='col-4'>
                     {productFamily.map(product => 
+                        // eslint-disable-next-line
                         <a onClick={imageFocusChange}>
                         <Thumbnail productObject={product}  />
                         </a>
