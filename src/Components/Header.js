@@ -7,7 +7,7 @@ function Header() {
     <div className="container headerContainer">
       <div className="row">
       <Navbar collapseOnSelect expand="lg" className="col-12">
-      <Navbar.Brand href="#home">
+      <Navbar.Brand href="/">
         {/* <Logo
           alt=""
           width="30"
