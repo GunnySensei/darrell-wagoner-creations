@@ -7,7 +7,6 @@ function ProductSection() {
 
     // TODO Check on how best to operate this with data
     const productListGenerator = (imageList) => {
-        console.log(imageList);
         imageList.data.forEach(image => {
             let imageObject = {};
             imageObject.index = productListIndex;

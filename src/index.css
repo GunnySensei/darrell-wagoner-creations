@@ -5,9 +5,7 @@ html {
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Lusitana', Georgia, serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -17,11 +15,16 @@ code {
     monospace;
 }
 
+.productSection {
+  font-family: 'Lusitana', Georgia, serif;
+}
+
 /* Header CSS */
 
 .headerContainer {
   border-bottom: 1px solid black;
   width: 100%;
+  font-family: 'Lusitana', Georgia, serif;
 }
 
 .headerRow {
@@ -32,6 +35,7 @@ code {
   position: absolute;
   z-index: -1;
 }
+
 
 /* Product CSS */
 
