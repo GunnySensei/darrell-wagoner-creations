@@ -10,6 +10,7 @@ function Cart() {
            if(item.id === event.target.id) {
             cartArray.splice(cartArray.indexOf(item),1);
            }
+           return cartArray;
         });
         localStorage.setItem("cartData", JSON.stringify(cartArray));
         setCartItems(JSON.parse(localStorage.getItem('cartData')));

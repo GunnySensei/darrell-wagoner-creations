@@ -1,7 +1,6 @@
 import {React, useState} from 'react';
 import { useParams } from 'react-router-dom';
 import Thumbnail from '../Components/Thumbnail';
-import Header from '../Components/Header';
 let productList = require('../Assets/photoData.json');
 
 function Product() {
