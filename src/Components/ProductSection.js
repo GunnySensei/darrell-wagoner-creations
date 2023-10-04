@@ -1,31 +1,52 @@
-let productList = require('../Assets/photoData.json');
+import React, {useState} from "react";
 
 function ProductSection() {
     let productListIndex = 0;
     let formatProductList = [];
+    let productList;
 
+    const [productListState, setProductListState] = useState([]);
 
-    // TODO Check on how best to operate this with data
-    const productListGenerator = (imageList) => {
-        imageList.data.forEach(image => {
-            let imageObject = {};
-            imageObject.index = productListIndex;
-            imageObject.image = image.link;
-            imageObject.url = image.link.split("m/")[1];
-            imageObject.name = image.title.split("-")[0];
-            // eslint-disable-next-line
-            if(image.title.split("-")[1] == 1) {
-                formatProductList.push(imageObject);
-            }
-            productListIndex++;
-        })
-    }
+    const getData=()=>{
+        fetch('data/photoData.json',
+        {
+          headers : { 
+           }
+        }
+        )
+          .then(function(response){
+            console.log(response)
+            return response.json();
+          })
+          .then(function(myJson) {
+            console.log(myJson);
+            productList = myJson;
+            productListGenerator(productList);
+          });
+      }
 
-    productListGenerator(productList);
+      
+      // TODO Check on how best to operate this with data
+      const productListGenerator = (imageList) => {
+          imageList.data.forEach(image => {
+              let imageObject = {};
+              imageObject.index = productListIndex;
+              imageObject.image = image.link;
+              imageObject.url = image.link.split("m/")[1];
+              imageObject.name = image.title.split("-")[0];
+              // eslint-disable-next-line
+              if(image.title.split("-")[1] == 1) {
+                  formatProductList.push(imageObject);
+                }
+                setProductListState(formatProductList);
+                productListIndex++;
+            })
+        }
+        getData();
 
     return (
         <div className="productSection row flex-grow-1">
-            {formatProductList.map(product => {
+            {productListState.map(product => {
                 return( 
                 <>
                 <a href={"/product/" + product.url} className="list-group-item image col-6 h-50" key={product.index}>
