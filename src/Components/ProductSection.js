@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 let productList = require('./photoData.json');
 
 function ProductSection() {
