@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-let productList = require('./photoData.json');
 
 function ProductSection() {
     let productListIndex = 0;
@@ -7,23 +6,22 @@ function ProductSection() {
 
     const [productListState, setProductListState] = useState([]);
 
-    const getData=()=>{
-        // fetch('https://api.imgur.com/3/album/RBee9LZ/images',
-        fetch('data/photoData.json',
-        {
-          headers : { 
-            // 'Authorization': 'Client-ID 5c7c9cd823f9da7'
-           }
-        }
-        )
+    const [gotProductList, setGotProductList] = useState(false);
+
+    function getData() {
+        fetch('https://darrell-wagoner-creations-serv-f7ed38e0cad9.herokuapp.com/api',{
+        mode: 'cors',
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
           .then(function(response){
-            console.log(response)
+            console.log(response);
             return response.json();
           })
           .then(function(myJson) {
             console.log(myJson);
-            productList = myJson;
-            productListGenerator(productList);
+            productListGenerator(myJson);
           });
       }
 
@@ -44,8 +42,10 @@ function ProductSection() {
                 productListIndex++;
             })
         }
-        getData();
-        // productListGenerator(productList);
+        if(!gotProductList) {
+          getData();
+          setGotProductList(true);
+        }
 
 
     return (

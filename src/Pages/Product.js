@@ -1,16 +1,28 @@
 import {React, useState} from 'react';
 import { useParams } from 'react-router-dom';
 import Thumbnail from '../Components/Thumbnail';
-let productList = require('../Assets/photoData.json');
 
 function Product() {
     const { productName } = useParams();
-    let product = productList.data.find(x => x.id.includes(productName.split(".")[0]));
-    let productTitle = product.title.split(" -")[0];
-    let productFamily = productList.data.filter(y => y.title.includes(productList.data.find(x => x.id.includes(productName.split(".")[0])).title.split("-")[0]));
-    
-    const [focusImage, setFocusImage] = useState(product.link);
     const [addedState, setAddedState] = useState("Add to Cart")
+    // eslint-disable-next-line
+    const [productListState, setProductListState] = useState({});
+    // eslint-disable-next-line
+    const [gotProductList, setGotProductList] = useState(false);
+    const [productState, setProductState] = useState({});
+    const [productTitleState, setProductTitleState] = useState("");
+    const [productFamilyState, setProductFamilyState] = useState([]);
+    
+    
+    
+    
+    const [focusImage, setFocusImage] = useState(productState.link);
+    
+    const setState = async (json) => {
+        await setProductListState(json);
+    }
+
+
 
     const imageFocusChange = (event) => {
         setFocusImage(event.target.src);
@@ -18,7 +30,7 @@ function Product() {
 
     const addToCart = () => {
         setAddedState("Added to Cart!");
-        let productObj = [product];
+        let productObj = [productState];
         
         let currentCart = localStorage.getItem('cartData');
         currentCart = JSON.parse(currentCart);
@@ -34,16 +46,42 @@ function Product() {
         window.dispatchEvent(new Event("storage"));
     }
 
+    function getData() {
+        fetch('https://darrell-wagoner-creations-serv-f7ed38e0cad9.herokuapp.com/api',{
+        mode: 'cors',
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+          .then(function(response){
+            console.log(response);
+            return response.json();
+          })
+          .then(function (myJson) {
+            console.log(myJson);
+            setState(myJson);
+            setProductState(myJson.data.find(x => x.id.includes(productName.split(".")[0])));
+            return myJson;
+          }).then(function(myJson){
+            setFocusImage(productState.link);
+              setProductTitleState(myJson.data.find(x => x.id.includes(productName.split(".")[0])).title.split(" -")[0]);
+              setProductFamilyState(myJson.data.filter(y => y.title.includes(myJson.data.find(x => x.id.includes(productName.split(".")[0])).title.split("-")[0])));
+          }
+          );
+      }
+
+      getData();
+
     return (
         <>
         <div className='container'>
             <div className='row col-12'>
-            <h2>{productTitle}</h2>
+            <h2>{productTitleState}</h2>
             </div>
             <div className='row col-12'>
                 <img className="img img-thumbnail productSingle col-8" src={focusImage} alt={productName}/>
                 <div className='col-4'>
-                    {productFamily.map(product => 
+                    {productFamilyState.map(product => 
                         // eslint-disable-next-line
                         <a onClick={imageFocusChange}>
                         <Thumbnail productObject={product}  />
@@ -53,7 +91,7 @@ function Product() {
                 <div className='row col-12'>
                     <h2 className='col-8'>Product Story</h2>
                     <button className='btn btn-primary col-3 col-lg-2 offset-1 offset-lg-2' onClick={addToCart}>{addedState}</button>
-                    <p className='col-8'>{product.description != null ? product.description : "This Product is still in development."}</p>
+                    <p className='col-8'>{productState.description != null ? productState.description : "This Product is still in development."}</p>
                 </div>
             </div>
         </div>
