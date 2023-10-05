@@ -44,7 +44,7 @@ function ProductSection() {
                 productListIndex++;
             })
         }
-        // getData();
+        getData();
         // productListGenerator(productList);
 
 
