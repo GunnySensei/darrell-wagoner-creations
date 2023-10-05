@@ -1,29 +1,31 @@
-import React from "react";
+import React, {useState} from "react";
 let productList = require('./photoData.json');
 
 function ProductSection() {
     let productListIndex = 0;
     let formatProductList = [];
 
-    // const [productListState, setProductListState] = useState([]);
+    const [productListState, setProductListState] = useState([]);
 
-    // const getData=()=>{
-    //     fetch(process.env.PUBLIC_URL + 'photoData.json',
-    //     {
-    //       headers : { 
-    //        }
-    //     }
-    //     )
-    //       .then(function(response){
-    //         console.log(response)
-    //         return response.json();
-    //       })
-    //       .then(function(myJson) {
-    //         console.log(myJson);
-    //         productList = myJson;
-    //         productListGenerator(productList);
-    //       });
-    //   }
+    const getData=()=>{
+        // fetch('https://api.imgur.com/3/album/RBee9LZ/images',
+        fetch('data/photoData.json',
+        {
+          headers : { 
+            // 'Authorization': 'Client-ID 5c7c9cd823f9da7'
+           }
+        }
+        )
+          .then(function(response){
+            console.log(response)
+            return response.json();
+          })
+          .then(function(myJson) {
+            console.log(myJson);
+            productList = myJson;
+            productListGenerator(productList);
+          });
+      }
 
       
       // TODO Check on how best to operate this with data
@@ -38,17 +40,17 @@ function ProductSection() {
               if(image.title.split("-")[1] == 1) {
                   formatProductList.push(imageObject);
                 }
-                // setProductListState(formatProductList);
+                setProductListState(formatProductList);
                 productListIndex++;
             })
         }
         // getData();
-        productListGenerator(productList);
+        // productListGenerator(productList);
 
 
     return (
         <div className="productSection row flex-grow-1">
-            {formatProductList.map(product => {
+            {productListState.map(product => {
                 return( 
                 <>
                 <a href={"/product/" + product.url} className="list-group-item image col-6 h-50" key={product.index}>
