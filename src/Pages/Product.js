@@ -62,15 +62,15 @@ function Product() {
             setState(myJson);
             setProductState(myJson.data.find(x => x.id.includes(productName.split(".")[0])));
             return myJson;
-          }).then(function(myJson){
-            setFocusImage(productState.link);
-              setProductTitleState(myJson.data.find(x => x.id.includes(productName.split(".")[0])).title.split(" -")[0]);
-              setProductFamilyState(myJson.data.filter(y => y.title.includes(myJson.data.find(x => x.id.includes(productName.split(".")[0])).title.split("-")[0])));
-          }
-          );
-      }
-      if(!gotProductList) {
-        getData();
+        }).then(function(myJson){
+            setProductTitleState(myJson.data.find(x => x.id.includes(productName.split(".")[0])).title.split(" -")[0]);
+            setProductFamilyState(myJson.data.filter(y => y.title.includes(myJson.data.find(x => x.id.includes(productName.split(".")[0])).title.split("-")[0])));
+            setFocusImage(myJson.data.find(x => x.id.includes(productName.split(".")[0])).link);
+            }
+            );
+        }
+        if(!gotProductList) {
+            getData();
         setGotProductList(true);
       };
 
