@@ -10,6 +10,11 @@ function Header() {
     setCartItems(JSON.parse(localStorage.getItem('cartData')));
     console.log(cartItems);
   })
+
+  const handleCartClear = () => {
+    localStorage.removeItem('cartData');
+  }
+
   return (
     <div className="container headerContainer">
       <div className="row">
@@ -32,6 +37,13 @@ function Header() {
               </>
               )
             })}
+            <NavDropdown.Item href={"/"} onClick={handleCartClear} className="clearCartButton">Clear Cart</NavDropdown.Item>
+            <NavDropdown.Divider></NavDropdown.Divider>
+            {!cartItems &&
+                <>
+                  <NavDropdown.Item href={"/"}>No Items In Cart Yet</NavDropdown.Item>
+                </>
+            }
           </NavDropdown>
         </Nav>
       </Navbar.Collapse>

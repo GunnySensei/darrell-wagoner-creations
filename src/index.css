@@ -36,6 +36,9 @@ code {
   z-index: -1;
 }
 
+.clearCartButton {
+  color: red;
+}
 
 /* Product CSS */
 
