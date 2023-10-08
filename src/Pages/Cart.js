@@ -27,7 +27,7 @@ function Cart() {
             "name": form[0].value,
             "email": form[1].value,
             "subject": "Darrell Wagoner Creations - " + form[2].value,
-            "message": "Reference the following items \n" + JSON.stringify(itemObj) + "\n and a message from the customer" + form[3].value,
+            "message": "Reference the following items \n" + JSON.stringify(itemObj) + "\n and a message from the customer \n" + form[3].value,
             "mailCopy": form[4].value
         }
         fetch('https://darrell-wagoner-creations-serv-f7ed38e0cad9.herokuapp.com/email/contact',{
