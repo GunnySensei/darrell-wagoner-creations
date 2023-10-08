@@ -69,8 +69,10 @@ function Product() {
           }
           );
       }
-
-      getData();
+      if(!gotProductList) {
+        getData();
+        setGotProductList(true);
+      };
 
     return (
         <>
