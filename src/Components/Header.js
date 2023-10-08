@@ -24,7 +24,7 @@ function Header() {
           <Nav.Link href="/About">About</Nav.Link>
           <Nav.Link href="/Cart">Cart</Nav.Link>
           <NavDropdown title="In Cart" id="collasible-nav-dropdown">
-            {cartItems.map((item) => {
+            {cartItems?.map((item) => {
               return(
               <>
                 <NavDropdown.Item href={"/product/" + item.link.split("m/")[1]} itemText>{item.title.split(" -")[0]}</NavDropdown.Item>
