@@ -31,13 +31,11 @@ function ProductSection() {
           imageList.data.forEach(image => {
               let imageObject = {};
               imageObject.index = productListIndex;
-              imageObject.image = image.link;
-              imageObject.url = image.link.split("m/")[1];
-              imageObject.name = image.title.split("-")[0];
+              imageObject.image = image.images[0].link;
+              imageObject.url = image.link.split("a/")[1];
+              imageObject.name = image.title;
               // eslint-disable-next-line
-              if(image.title.split("-")[1] == 1) {
-                  formatProductList.push(imageObject);
-                }
+              formatProductList.push(imageObject);
                 setProductListState(formatProductList);
                 productListIndex++;
             })

@@ -9,14 +9,12 @@ function Product() {
     const [productListState, setProductListState] = useState({});
     // eslint-disable-next-line
     const [gotProductList, setGotProductList] = useState(false);
-    const [productState, setProductState] = useState({});
-    const [productTitleState, setProductTitleState] = useState("");
-    const [productFamilyState, setProductFamilyState] = useState([]);
+    const [productState, setProductState] = useState({images:[""]});
     
     
     
     
-    const [focusImage, setFocusImage] = useState(productState.link);
+    const [focusImage, setFocusImage] = useState('https://imgur.com/');
     
     const setState = async (json) => {
         await setProductListState(json);
@@ -60,13 +58,12 @@ function Product() {
           .then(function (myJson) {
             console.log(myJson);
             setState(myJson);
-            setProductState(myJson.data.find(x => x.id.includes(productName.split(".")[0])));
+            setProductState(myJson.data.find(x => x.id.includes(productName)));
             return myJson;
         }).then(function(myJson){
-            setProductTitleState(myJson.data.find(x => x.id.includes(productName.split(".")[0])).title.split(" -")[0]);
-            setProductFamilyState(myJson.data.filter(y => y.title.includes(myJson.data.find(x => x.id.includes(productName.split(".")[0])).title.split("-")[0])));
-            setFocusImage(myJson.data.find(x => x.id.includes(productName.split(".")[0])).link);
-            }
+            let currentProduct = myJson.data.find(x => x.id.includes(productName))
+            setFocusImage(currentProduct.images ? currentProduct.images[0].link : null);
+        }
             );
         }
         if(!gotProductList) {
@@ -78,22 +75,22 @@ function Product() {
         <>
         <div className='container'>
             <div className='row col-12'>
-            <h2>{productTitleState}</h2>
+            <h2>{productState.title ? productState.title : `Product Name`}</h2>
             </div>
             <div className='row col-12'>
                 <img className="img img-thumbnail productSingle col-8" src={focusImage} alt={productName}/>
                 <div className='col-4'>
-                    {productFamilyState.map(product => 
+                    {productState.images ? productState.images.map(product => 
                         // eslint-disable-next-line
                         <a onClick={imageFocusChange}>
                         <Thumbnail productObject={product}  />
                         </a>
-                    )}
+                    ) : []}
                 </div>
                 <div className='row col-12'>
                     <h2 className='col-8'>Product Story</h2>
-                    <button className='btn btn-primary col-3 col-lg-2 offset-1 offset-lg-2' onClick={addToCart}>{addedState}</button>
-                    <p className='col-8'>{productState.description != null ? productState.description : "This Product is still in development."}</p>
+                    <button className='btn btn-primary col-3 col-lg-2 offset-1 offset-lg-2' onClick={addToCart}>{addedState} - {productState?.images[0].description ? productState?.images[0].description.split('- ')[1] : ""}</button>
+                    <p className='col-8'>{productState?.images[0].description ? productState?.images[0].description : "This Product is still in development."}</p>
                 </div>
             </div>
         </div>
