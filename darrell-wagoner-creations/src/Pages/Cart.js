@@ -30,7 +30,7 @@ function Cart() {
             "message": "Reference the following items \n" + JSON.stringify(itemObj) + "\n and a message from the customer \n" + form[3].value,
             "mailCopy": form[4].value
         }
-        fetch('https://darrell-wagoner-creations-serv-f7ed38e0cad9.herokuapp.com/email/contact',{
+        fetch('http://localhost:3001/email/contact',{
             mode: 'cors',
             method: 'POST',
             headers: {
@@ -52,7 +52,7 @@ function Cart() {
                         return (
                             <div className='container col-12' id={item.id}>
                                 <div className='row'>
-                                    <img src={item.link} alt={item.description} className='col-md-3 img img-thumbnail' />
+                                    <img src={item.images[0].link} alt={item.description} className='col-md-3 img img-thumbnail' />
                                     <div className='row col-md-7'>
                                         <div className='row col-12 col-md-6'>
                                             <h3 className='col-3'>Name:</h3>

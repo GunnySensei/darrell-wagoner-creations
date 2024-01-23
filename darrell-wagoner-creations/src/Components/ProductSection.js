@@ -9,7 +9,7 @@ function ProductSection() {
     const [gotProductList, setGotProductList] = useState(false);
 
     function getData() {
-        fetch('https://darrell-wagoner-creations-serv-f7ed38e0cad9.herokuapp.com/api',{
+        fetch('http://localhost:3001/api',{
         mode: 'cors',
         headers: {
           "Content-Type": "application/json",
