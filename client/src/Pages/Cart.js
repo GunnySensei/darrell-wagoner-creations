@@ -77,7 +77,7 @@ function Cart() {
                     }
                 </div>
                 <div className='inquiryContainer'>
-                    <MDBValidation noValidate id='form' className='text-center' style={{width: '100%', maxWidth: '3000px'}}>
+                    <MDBValidation noValidate id='form' className='text-center' style={{width: '100%', maxWidth: '3000px', outlineColor: 'black'}}>
                         <h3>If you would like to contact us about your above items or another project,</h3>
                         <h3>Please email us below with the information and we'll get back to you as soon as possible!</h3>
 
@@ -98,7 +98,7 @@ function Cart() {
                         </MDBValidationItem>
 
                         <MDBValidationItem feedback=''>
-                            <MDBCheckbox wrapperClass='d-flex justify-content-center' label='Send me copy' />
+                            <MDBCheckbox wrapperClass='d-flex justify-content-center' label='Send me a copy' />
                         </MDBValidationItem>
 
                         <MDBBtn type='submit' onClick={handleFormSubmit} color='primary' block className='my-4'>
