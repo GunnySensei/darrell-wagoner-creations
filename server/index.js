@@ -8,6 +8,11 @@ import multer from 'multer';
 import config from './config/index.js';
 import routes from './routes/index.js'
 
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 const photoData = JSON.parse(
     await readFile(
         new URL('./photoData.json', import.meta.url)
