@@ -77,28 +77,28 @@ function Cart() {
                     }
                 </div>
                 <div className='inquiryContainer'>
-                    <MDBValidation noValidate id='form' className='text-center' style={{width: '100%', maxWidth: '3000px', outlineColor: 'black'}}>
+                    <MDBValidation noValidate id='form' className='text-center' style={{width: '100%', maxWidth: '3000px', borderColor: '#8888'}}>
                         <h3>If you would like to contact us about your above items or another project,</h3>
                         <h3>Please email us below with the information and we'll get back to you as soon as possible!</h3>
 
-                        <MDBValidationItem invalid feedback='Please provide your name.'>
-                            <MDBInput label='Name' v-model='name' wrapperClass='mb-4' required />
+                        <MDBValidationItem invalid feedback='Please provide your name.' >
+                            <MDBInput label='Name' v-model='name' wrapperClass='mb-4' required style={{border: "1px solid #8888"}} />
                         </MDBValidationItem>
 
                         <MDBValidationItem invalid feedback='Please provide your email.'>
-                            <MDBInput type='email' label='Email address' v-model='email' wrapperClass='mb-4' required />
+                            <MDBInput type='email' label='Email address' v-model='email' wrapperClass='mb-4' required style={{border: "1px solid #8888"}} />
                         </MDBValidationItem>
 
                         <MDBValidationItem invalid feedback='Please provide mail subject.'>
-                            <MDBInput label='Subject' v-model='subject' wrapperClass='mb-4' required />
+                            <MDBInput label='Subject' v-model='subject' wrapperClass='mb-4' required style={{border: "1px solid #8888"}}/>
                         </MDBValidationItem>
 
                         <MDBValidationItem invalid feedback='Please provide a message text.'>
-                            <MDBTextArea wrapperClass='mb-4' label='Message' required />
+                            <MDBTextArea wrapperClass='mb-4' label='Message' required style={{border: "1px solid #8888"}}/>
                         </MDBValidationItem>
 
                         <MDBValidationItem feedback=''>
-                            <MDBCheckbox wrapperClass='d-flex justify-content-center' label='Send me a copy' />
+                            <MDBCheckbox wrapperClass='d-flex justify-content-center' label='Send me a copy' style={{border: "1px solid #8888"}}/>
                         </MDBValidationItem>
 
                         <MDBBtn type='submit' onClick={handleFormSubmit} color='primary' block className='my-4'>
