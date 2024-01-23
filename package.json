@@ -5,13 +5,13 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "install": "cd darrell-wagoner-creations && npm i && cd ../server && npm i",
+    "install": "cd client && npm i && cd ../server && npm i",
     "start:backend": "cd server && npm run serve",
-    "start:frontend": "cd darrell-wagoner-creations && npm start",
+    "start:frontend": "cd client && npm start",
     "develop": "concurrently  \"npm run start:backend\" \"npm run start:frontend\"",
     "start": "node server/index.js",
-    "build": "cd darrell-wagoner-creations && npm run build",
-    "heroku-postbuild": "cd darrell-wagoner-creations && npm install && npm run build"
+    "build": "cd client && npm run build",
+    "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "repository": {
     "type": "git",
