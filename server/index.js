@@ -25,9 +25,13 @@ app.use(upload.none());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+if(process.env.NODE_ENV === 'production') {
+    app.use(express.static(path.join(__dirname, '../client/build')));
+}
+
 app.use("/email", routes)
 
-app.get('/', (req, res) => res.send('Visit http://localhost:3001/api'));
+app.get('*', (req, res) => res.sendFile(path.join(__dirname, '../client/build/index.html')));
 
 // res.json() allows us to return JSON instead of a buffer, string, or static file
 app.get('/api', (req, res) => res.json(photoData));
