@@ -33,9 +33,9 @@ app.use(express.json());
 
 app.use("/email", routes)
 
-app.use(express.static(path.join(__dirname, '../client/build')));
+app.use(express.static(path.join(__dirname, 'build', 'index.html')));
 app.get('*', (req, res) => { 
-  res.sendFile(path.join(__dirname + '../client/build/index.html')) 
+  res.sendFile(path.join(__dirname + 'build', 'index.html')) 
 });
 
 app.options('/products/:id', cors()); // enable pre-flight request for GET request
