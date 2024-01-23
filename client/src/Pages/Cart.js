@@ -30,7 +30,7 @@ function Cart() {
             "message": "Reference the following items \n" + JSON.stringify(itemObj) + "\n and a message from the customer \n" + form[3].value,
             "mailCopy": form[4].value
         }
-        fetch(`http://localhost:${process.env.PORT}/email/contact`,{
+        fetch(`/email/contact`,{
             mode: 'cors',
             method: 'POST',
             headers: {

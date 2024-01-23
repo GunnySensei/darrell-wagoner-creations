@@ -9,7 +9,7 @@ function ProductSection() {
     const [gotProductList, setGotProductList] = useState(false);
 
     function getData() {
-        fetch(`http://localhost:${process.env.PORT}/api`,{
+        fetch(`/api`,{
         mode: 'cors',
         headers: {
           "Content-Type": "application/json",
