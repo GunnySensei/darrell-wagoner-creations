@@ -8,7 +8,8 @@
     "install": "cd darrell-wagoner-creations && npm i && cd ../server && npm i",
     "start:backend": "cd server && npm run serve",
     "start:frontend": "cd darrell-wagoner-creations && npm start",
-    "start": "concurrently  \"npm run start:backend\" \"npm run start:frontend\""
+    "develop": "concurrently  \"npm run start:backend\" \"npm run start:frontend\"",
+    "start": "node server/index.js"
   },
   "repository": {
     "type": "git",
