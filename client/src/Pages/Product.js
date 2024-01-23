@@ -45,7 +45,7 @@ function Product() {
     }
 
     function getData() {
-        fetch('http://localhost:3001/api',{
+        fetch(`http://localhost:${process.env.PORT}/api`,{
         mode: 'cors',
         headers: {
           "Content-Type": "application/json",
