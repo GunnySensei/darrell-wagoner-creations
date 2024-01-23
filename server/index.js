@@ -38,6 +38,11 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname + '../client/build/index.html')) 
 });
 
+app.options('/products/:id', cors()); // enable pre-flight request for GET request
+app.get('/products/:id', cors(), function (req, res, next) {
+  res.json({msg: 'This is CORS-enabled for all origins!'});
+});
+
 // res.json() allows us to return JSON instead of a buffer, string, or static file
 app.get('/api', (req, res) => res.json(photoData));
 app.get('/updateData', (req, res) => {
