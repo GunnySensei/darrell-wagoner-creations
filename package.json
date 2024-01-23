@@ -10,7 +10,8 @@
     "start:frontend": "cd darrell-wagoner-creations && npm start",
     "develop": "concurrently  \"npm run start:backend\" \"npm run start:frontend\"",
     "start": "node server/index.js",
-    "build": "cd darrell-wagoner-creations && npm run build"
+    "build": "cd darrell-wagoner-creations && npm run build",
+    "heroku-postbuild": "cd darrell-wagoner-creations && npm install && npm run build"
   },
   "repository": {
     "type": "git",
