@@ -8,10 +8,8 @@ import multer from 'multer';
 import config from './config/index.js';
 import routes from './routes/index.js'
 
-import { fileURLToPath } from 'url';
+const __dirname = path.resolve();
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 const photoData = JSON.parse(
     await readFile(
@@ -32,23 +30,17 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use("/email", routes)
-
-app.use(express.static(path.join(__dirname, '../client/build')));
-app.get('*', (req, res) => { 
-  res.sendFile(path.join(__dirname + '../client/build/index.html')) 
-});
-
-app.options('/products/:id', cors()); // enable pre-flight request for GET request
-app.get('/products/:id', cors(), function (req, res, next) {
-  res.json({msg: 'This is CORS-enabled for all origins!'});
-});
-
 // res.json() allows us to return JSON instead of a buffer, string, or static file
 app.get('/api', (req, res) => res.json(photoData));
 app.get('/updateData', (req, res) => {
     res.send("Updated Data");
     getData()
 });
+
+app.use(express.static('client/build'));
+app.get('*', (req, res) => res.sendFile(path.resolve('client', 'build', 'index.html')));
+
+
 
 app.listen(config.PORT, () =>
   console.log(`Example app listening at http://localhost:${config.PORT}`)
